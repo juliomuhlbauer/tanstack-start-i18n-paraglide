@@ -24,6 +24,6 @@
     "vite-tsconfig-paths": "^5.1.4",
     "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.13",
-    "@inlang/paraglide-js": "2.3.0"
+    "@inlang/paraglide-js": "2.4.0"
   }
 }
