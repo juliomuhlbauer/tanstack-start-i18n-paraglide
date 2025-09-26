@@ -79,6 +79,8 @@ export default {
 In `__root.tsx` add change the html lang attribute to the current locale.
 
 ```tsx
+import { getLocale } from "../paraglide/runtime.js";
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang={getLocale()}>
@@ -92,6 +94,25 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
+```
+
+## Offline redirect
+
+If you have an application that needs to work offline, you will need to handle the redirect in the client like this.
+
+```ts
+import { shouldRedirect } from "../paraglide/runtime";
+
+export const Route = createRootRoute({
+  beforeLoad: async () => {
+    const decision = await shouldRedirect({ url: window.location.href });
+
+    if (decision.redirectUrl) {
+      throw redirect({ href: decision.redirectUrl.href });
+    }
+  },
+  ...
+});
 ```
 
 ## Typesafe translated pathnames
