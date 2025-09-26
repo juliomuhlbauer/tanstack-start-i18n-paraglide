@@ -1,4 +1,4 @@
-# TanSTack Start example
+# TanStack Start example
 
 This example shows how to use Paraglide with TanStack Start. The source code can be found [here](https://github.com/opral/monorepo/tree/main/inlang/packages/paraglide/paraglide-js/examples/tanstack-start).
 
@@ -160,7 +160,7 @@ function createTranslatedPathnames(
       ([locale, path]) =>
         [locale as Locale, `/${locale}${toUrlPattern(path)}`] satisfies [
           Locale,
-          string,
+          string
         ]
     ),
   }));
