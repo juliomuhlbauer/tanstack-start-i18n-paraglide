@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "start-i18n-paraglide",
+      "name": "tanstack-start-i18n-paraglide",
       "dependencies": {
         "@tanstack/nitro-v2-vite-plugin": "1.132.0",
         "@tanstack/react-devtools": "^0.7.0",
