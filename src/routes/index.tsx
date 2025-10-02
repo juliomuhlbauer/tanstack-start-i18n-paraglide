@@ -11,11 +11,11 @@ const getServerMessage = createServerFn()
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: () => {
+  loader: async () => {
     return {
       localeFromLoader: getLocale(),
       messageFromLoader: m.example_message({ username: "John Doe" }),
-      serverFunctionMessage: getServerMessage({ data: "📩" }),
+      serverFunctionMessage: await getServerMessage({ data: "📩" }),
     };
   },
 });
