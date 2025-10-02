@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { m } from "@/paraglide/messages.js";
-import { getLocale } from "@/paraglide/runtime.js";
 import { createServerFn } from "@tanstack/react-start";
 
 const getServerMessage = createServerFn()
@@ -13,7 +12,6 @@ export const Route = createFileRoute("/")({
   component: Home,
   loader: async () => {
     return {
-      localeFromLoader: getLocale(),
       messageFromLoader: m.example_message({ username: "John Doe" }),
       serverFunctionMessage: await getServerMessage({ data: "📩" }),
     };
@@ -21,8 +19,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { serverFunctionMessage, messageFromLoader, localeFromLoader } =
-    Route.useLoaderData();
+  const { serverFunctionMessage, messageFromLoader } = Route.useLoaderData();
   return (
     <div className="p-2">
       <h2>Message from loader: {messageFromLoader}</h2>
